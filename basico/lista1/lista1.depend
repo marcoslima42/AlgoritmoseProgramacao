@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1692069281 source:c:\users\marcos lima\documents\github\algoritmoseprogramacao\basico\lista1\2.c
-	<stdio.h>
-	<stdlib.h>
-
-1692069265 source:c:\users\marcos lima\documents\github\algoritmoseprogramacao\basico\lista1\main.c
-	<stdio.h>
-	<stdlib.h>
-
