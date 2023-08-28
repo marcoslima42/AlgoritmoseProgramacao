@@ -1,4 +1,3 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -42,29 +41,22 @@ int main() {
         if(n3<menor)
             menor=n3;
 
-        printf("\n\n");
-        for(int i=0; i<20; i++){
-            printf("%c", 219);
-        }
-
         //output
         printf("\n%d,", maior);
-        if(maior>n1 && menor<=n1)
-            printf(" %dsadsd,", n1);
-        else if(maior>n2 && menor<=n2)
-            printf(" %d,", n2);
+
+        if(maior==n1 || maior==n2 || maior==n3)
+            printf(" %d,", maior);
+        else if(menor==n1 || menor==n2 || menor==n3)
+            printf(" %d,", menor);
         else
-            printf(" %d,fgjhg", n3);
+            if(maior>n2 && menor<n2)
+                printf(" %d,", n1);
+            else if(maior>n2 && menor<n2)
+                printf(" %d,", n2);
+            else if(maior>n3 && menor<n3)
+                printf(" %d,", n3);
 
         printf(" %d.", menor);
-
-        //printf("\n\ndebugui %d,", n1);
-        //printf("debugui %d,", n2);
-        //printf("debugui %d", n3);
     }
-
-
-
-
     return 0;
 }
