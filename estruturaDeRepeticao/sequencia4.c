@@ -6,15 +6,18 @@
 int main(){
     int opc=0;
     scanf("%d", &opc);
-
+    
     while(opc<=0)
         scanf("%d", &opc);
-
+        
+    int dif=0;
+    
     for(int n=0; n<=opc; n=n+2){
-        if(n<opc)
+        dif=opc-n;
+        if(n<opc && dif>=2)
             printf("%d, ", n);
         else
-            printf("%d.", n);
+            printf("%d.", n); 
     }
     return 0;
 }
