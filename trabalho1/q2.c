@@ -13,9 +13,11 @@ int main(){
         scanf("%f", &salario);
         printf("\nDigite a quantidade de dependentes: ");
         scanf("%d", &dp);
+        printf("\nTECLE ENTER PARA PROCESSAR...");
+        getch();
 
         //saida
-        //system(cls);
+        system("cls");
         printf("\nRELATORIO FUNCIONARIO %d\n\n", cont);
         if(dp==1)
             salario*=1.02;
@@ -29,7 +31,8 @@ int main(){
             salario*=1.1;
         printf("O Salario liquido e de %.2f", salario);
         cont++;
-        //system(cls);
+        getch();
+        system("cls");
 
     }
     
