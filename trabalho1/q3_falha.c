@@ -1,36 +1,30 @@
 #include <stdio.h>
 
 int main(){
-    float capitalInicial=0, capital=0, taxa=0, juros=0, total=0, primeiraVez=1;
+    float montante=0, capital=0, taxa=0, juros=0;
+    int tempo=0;
     char opc='S';
 
     while(opc=='S' || opc=='s'){    
+        montante=0, capital=0, taxa=0, juros=0;
+        
         //entrada
         printf("\nJUROS COMPOSTO");
-        printf("\n\nInsira o seu capital inicial: ");
-        scanf("%f", &capitalInicial);
         printf("\nInsira o capital ao mes: ");
         scanf("%f", &capital);
         printf("\nInsira a taxa de juros: ");
         scanf("%f", &taxa);
         
         //processamento 
-        
-        
-        for(int i=1; i<=12; i++){
-            if(primeiraVez==1){    
-                if(capitalInicial>0){
-                    capital+=capitalInicial;
-                    primeiraVez=0;
-                }
-            }
+        for(tempo=1; tempo<=11; tempo++){
             juros=capital*(taxa/100);
+            montante=montante+(capital+juros);
             capital=capital+juros;
         }
 
         //saida
         printf("\n\n\nSaldo do investimento apos um ano: ");
-        printf("\nR$ %.2f", total);
+        printf("\nR$ %.2f", montante+100);
         printf("\n\nDESEJA EXECUTAR NOVAMENTE?");
         printf("\nSE SIM DIGITE 'S', SE NAO INSIRA QUALQUER TECLA\n");
         opc=getch();
