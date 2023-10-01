@@ -22,7 +22,7 @@ int main(){
             alcool++;
         else if(opc==2)
             gasolina++;
-        else 
+        else if(opc==3)
             diesel++;
         printf("\nMuito Obrigado!");
         getch();
