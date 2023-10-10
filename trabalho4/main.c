@@ -1,4 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+void numeroPerfeito(){
+    int num=0, invalido=1;
+    system("cls");
+    printf("         NUMERO PERFEITO         \n");
+    printf(" ");
+    for(int i=0; i<30; i++){
+        printf("%c", 220);
+    }
+    printf("\n\n\nDigite seu numero: ");
+    do{
+        scanf("%d", &num);
+        if(num<=1 ){
+            printf("\nNumero invalido, digite novamente: ");
+            invalido=1;
+        }
+        else
+            invalido=0;
+    }while(invalido==1);
+    
+}
 
 void menu(){
     printf("         MENU DE OPCOES          \n");
@@ -33,7 +55,7 @@ int input_opc(int opc){
         else
             invalido=0;
         cont++;
-    }while(invalido=1);
+    }while(invalido==1);
 
     return opc;
 }
@@ -43,6 +65,21 @@ int main(){
     menu();
     opc=input_opc(opc);
 
+    if(opc==1){
+        numeroPerfeito();
+    }
+    else if(opc==2){
+
+    }
+    else if(opc==3){
+
+    }
+    else if(opc==4){    
+
+    }
+    else{
+        printf("\n\n\nPROGRAMA ENCERRADO...");
+    }
 
     return 0;
 }
