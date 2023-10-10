@@ -1,28 +1,64 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void numeroPerfeito(){
-    int num=0, invalido=1;
-    system("cls");
-    printf("         NUMERO PERFEITO         \n");
-    printf(" ");
-    for(int i=0; i<30; i++){
-        printf("%c", 220);
-    }
-    printf("\n\n\nDigite seu numero: ");
-    do{
-        scanf("%d", &num);
-        if(num<=1 ){
-            printf("\nNumero invalido, digite novamente: ");
-            invalido=1;
-        }
-        else
-            invalido=0;
-    }while(invalido==1);
+void divisivel4(){
+
+}
+
+void seqSinal(){
+
+}
+
+void orcamentoVidracaria(){
     
 }
 
+void numeroPerfeito(){
+    char novamente='s';
+    while(novamente=='s' || novamente=='S'){
+        int num=0, invalido=1;
+        system("cls");
+        printf("         NUMERO PERFEITO         \n");
+        printf(" ");
+        for(int i=0; i<30; i++){
+            printf("%c", 220);
+        }
+        printf("\n\n\nDigite seu numero: ");
+        do{
+            fflush(stdin);
+            scanf("%d", &num);
+            if(num<=1 ){
+                printf("\nNumero invalido, digite novamente: ");
+                invalido=1;
+            }
+            else
+                invalido=0;
+        }while(invalido==1);
+
+        int valor=1;
+        int perfeito=0;
+
+        while(valor<num){
+            if(num%valor==0){
+                perfeito+=valor;
+            }
+            valor++;
+        }
+        if(perfeito==num)
+            printf("\n\nNUMERO PERFEITO!");
+        else
+            printf("\n\nSEU NUMERO NAO E PERFEITO!");
+
+
+        printf("\n\n\nDESEJA EXECUTAR O PROGRAMA 1 NOVAMENTE?");
+        printf(" SE SIM, DIGITE 'S' OU 's'...\n");
+        fflush(stdin);
+        scanf("%c", &novamente);
+    }
+}
+
 void menu(){
+    system("cls");
     printf("         MENU DE OPCOES          \n");
     printf(" ");
     for(int i=0; i<30; i++){
@@ -38,7 +74,7 @@ void menu(){
 
 int input_opc(int opc){
     int invalido=0, cont=1;
-    
+
     do{
         printf("\n\n\nDigite: ");
         fflush(stdin);
@@ -60,25 +96,42 @@ int input_opc(int opc){
     return opc;
 }
 
+char backMenu(char novamente){
+    system("cls");
+    printf("\nDESEJA VOLTAR AO MENU?");
+    printf(" SE SIM, DIGITE 'S' OU 's'...\n");
+    fflush(stdin);
+    scanf("%c", &novamente);
+    return novamente;
+}
+
 int main(){
     int opc=0;
-    menu();
-    opc=input_opc(opc);
+    char novamente='s';
 
-    if(opc==1){
-        numeroPerfeito();
-    }
-    else if(opc==2){
-
-    }
-    else if(opc==3){
-
-    }
-    else if(opc==4){    
-
-    }
-    else{
-        printf("\n\n\nPROGRAMA ENCERRADO...");
+    while(novamente=='S' || novamente=='s'){
+        menu();
+        opc=input_opc(opc);
+        if(opc==1){
+            numeroPerfeito();
+            novamente=backMenu(novamente);
+        }
+        else if(opc==2){
+            orcamentoVidracaria();
+            novamente=backMenu(novamente);
+        }
+        else if(opc==3){
+            seqSinal();
+            novamente=backMenu(novamente);
+        }
+        else if(opc==4){
+            divisivel4();
+            novamente=backMenu(novamente);
+        }
+        else if(opc==5){
+            printf("\n\n\nPROGRAMA ENCERRADO!");
+            novamente='n';
+        }
     }
 
     return 0;
