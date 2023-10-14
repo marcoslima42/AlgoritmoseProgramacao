@@ -10,34 +10,35 @@ void seqSinal(){
 
 }
 
-int medida5(){
+float medida5(){
     float x=0;
     int xInteiro=0;
     
     printf("\n\n Insira a medida desejada: ");
     fflush(stdin);
     scanf("%f", &x);
-    if(x<0){
-        printf("Medida negativa, digite novamente...");
-        Sleep(150);
-        system("cls");
+    while(x<0 || (x<10 && x>0)){
+        printf("\nMedida negativa ou muito baixa, digite novamente...");
+        printf(" Insira acima de 100mm");
+        fflush(stdin);
+        scanf("%f", &x);
     }
     
-    xInteiro=x*100;
+    xInteiro=x;
     
     if((xInteiro % 5) != 0){
         printf("\n\n\nMedida invalida, o valor sera cobrado referente ao proximo multiplo de 5...");
         while((xInteiro % 5) != 0)
             xInteiro++;
     }
-    xInteiro/=100;
-    return xInteiro;
+    x=xInteiro;
+    return x;
 }
 
 void orcamentoVidracaria(){
     char novamente='s';
     int fim=0, valor=5;
-    float comprimento=0, largura=0, pagar=0, maior=0, menor=0;
+    float comprimento=0, largura=0, pagar=0, maior=0, menor=0, total=0;
     while(novamente=='s' || novamente=='S'){
         system("cls");
         printf("         ORCAMENTO VIDRACARIA         \n");
@@ -47,22 +48,32 @@ void orcamentoVidracaria(){
         }
     fim=0;
     do{
+        comprimento=largura=pagar=0;
         printf("\n\nDigite o Comprimento\n");
         comprimento=medida5();
         printf("\n\nDigite a Largura\n");
         largura=medida5();
-
-        pagar=(largura*comprimento)*valor;
-        if(comprimento==0)
+        
+        if(comprimento==0 || largura==0)
             fim=1;
+        else{
+            pagar=(largura*comprimento)*valor;
+            if(pagar>maior)
+                maior=pagar;
+            if(pagar<menor)
+                menor=pagar;
+            total+=pagar;
 
-        if(pagar>maior)
-            maior=pagar;
-        if(pagar<menor)
-            menor=pagar;
+            printf("\nValor do orcamento atual %.2fmm X %.2fmm = %.2f\n\n", comprimento, largura, pagar);
+            for(int i=0; i<36; i++){
+                printf("%c", 220);
+            }
+        }
     }while(fim==0);
-    
 
+    printf("\n\n\nO maior orcamento %.2f", maior);
+    printf("\nO menor orcamento %2.f", menor);
+    printf("\nValor total dos orcamentos %2.f", total);
     }
 
 }
