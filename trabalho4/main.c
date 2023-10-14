@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 
 void divisivel4(){
 
@@ -9,8 +10,34 @@ void seqSinal(){
 
 }
 
+int medida5(){
+    float x=0;
+    int xInteiro=0;
+    
+    printf("\n\n Insira a medida desejada: ");
+    fflush(stdin);
+    scanf("%f", &x);
+    if(x<0){
+        printf("Medida negativa, digite novamente...");
+        Sleep(150);
+        system("cls");
+    }
+    
+    xInteiro=x*100;
+    
+    if((xInteiro % 5) != 0){
+        printf("\n\n\nMedida invalida, o valor sera cobrado referente ao proximo multiplo de 5...");
+        while((xInteiro % 5) != 0)
+            xInteiro++;
+    }
+    xInteiro/=100;
+    return xInteiro;
+}
+
 void orcamentoVidracaria(){
-    int novamente='s';
+    char novamente='s';
+    int fim=0, valor=5;
+    float comprimento=0, largura=0, pagar=0, maior=0, menor=0;
     while(novamente=='s' || novamente=='S'){
         system("cls");
         printf("         ORCAMENTO VIDRACARIA         \n");
@@ -18,8 +45,26 @@ void orcamentoVidracaria(){
         for(int i=0; i<36; i++){
             printf("%c", 280);
         }
-        getch();
+    fim=0;
+    do{
+        printf("\n\nDigite o Comprimento\n");
+        comprimento=medida5();
+        printf("\n\nDigite a Largura\n");
+        largura=medida5();
+
+        pagar=(largura*comprimento)*valor;
+        if(comprimento==0)
+            fim=1;
+
+        if(pagar>maior)
+            maior=pagar;
+        if(pagar<menor)
+            menor=pagar;
+    }while(fim==0);
+    
+
     }
+
 }
 
 void numeroPerfeito(){
