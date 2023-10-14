@@ -10,7 +10,16 @@ void seqSinal(){
 }
 
 void orcamentoVidracaria(){
-    
+    int novamente='s';
+    while(novamente=='s' || novamente=='S'){
+        system("cls");
+        printf("         ORCAMENTO VIDRACARIA         \n");
+        printf(" ");
+        for(int i=0; i<36; i++){
+            printf("%c", 280);
+        }
+        getch();
+    }
 }
 
 void numeroPerfeito(){
@@ -21,7 +30,7 @@ void numeroPerfeito(){
         printf("         NUMERO PERFEITO         \n");
         printf(" ");
         for(int i=0; i<30; i++){
-            printf("%c", 220);
+            printf("%c", 280);
         }
         printf("\n\n\nDigite seu numero: ");
         do{
