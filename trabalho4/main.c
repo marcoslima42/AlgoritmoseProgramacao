@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <windows.h>
 
+
 void divisivel4(){
 
 }
@@ -36,18 +37,17 @@ float medida5(){
 }
 
 void orcamentoVidracaria(){
-    char novamente='s';
     int fim=0, valor=5;
-    float comprimento=0, largura=0, pagar=0, maior=0, menor=0, total=0;
-    while(novamente=='s' || novamente=='S'){
-        system("cls");
-        printf("         ORCAMENTO VIDRACARIA         \n");
-        printf(" ");
-        for(int i=0; i<36; i++){
-            printf("%c", 280);
-        }
-    fim=0;
+    float comprimento=0, largura=0, pagar=0, maior=0, menor=0, total=0, primeiraVez=1;
+    system("cls");
+    printf("         ORCAMENTO VIDRACARIA         \n");
+    printf(" ");
+    for(int i=0; i<36; i++){
+        printf("%c", 280);
+    }
+    
     do{
+        fim=0;
         comprimento=largura=pagar=0;
         printf("\n\nDigite o Comprimento\n");
         comprimento=medida5();
@@ -58,6 +58,10 @@ void orcamentoVidracaria(){
             fim=1;
         else{
             pagar=(largura*comprimento)*valor;
+            if(primeiraVez==1){
+                primeiraVez=0;
+                menor=pagar;
+            }
             if(pagar>maior)
                 maior=pagar;
             if(pagar<menor)
@@ -74,9 +78,8 @@ void orcamentoVidracaria(){
     printf("\n\n\nO maior orcamento %.2f", maior);
     printf("\nO menor orcamento %2.f", menor);
     printf("\nValor total dos orcamentos %2.f", total);
+    system("pause");
     }
-
-}
 
 void numeroPerfeito(){
     char novamente='s';
