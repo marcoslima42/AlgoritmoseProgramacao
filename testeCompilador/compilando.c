@@ -11,6 +11,7 @@ int main(){
     printf("\npegou!");
     printf("depois de ter debugado uma vez");
     menu();
+    system("\n\npause\n\n");
     printf("\n\n\n\nultimavez");
     return 0;
 }
