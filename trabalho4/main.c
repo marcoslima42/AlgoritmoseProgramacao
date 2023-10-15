@@ -4,11 +4,67 @@
 
 
 void divisivel4(){
+    char novamente='s';
 
+    while(novamente=='s' || novamente=='S'){
+        system("cls");
+        printf("         NUMEROS DIVISIVEIS POR 4         \n");
+        printf(" ");
+        for(int i=0; i<40; i++){
+            printf("%c", 280);
+        }        
+        int num=0;
+        printf("\n\nQual o intervalo:\n");
+        do
+        {
+            fflush(stdin);
+            scanf("%d", &num);
+            if(num<=0)
+                printf("\nIntervalo menor ou igual a zero, digite novamente: ");
+        }while(num<=0);
+
+        for(int i=1; i<=num; i++){
+            if((i % 4) == 0)
+                printf("\n%d e divisivel 4", i);
+        }
+
+        printf("\n\n\nDESEJA EXECUTAR O PROGRAMA 3 NOVAMENTE?");
+        printf(" SE SIM, DIGITE 'S' OU 's'...\n");
+        fflush(stdin);
+        scanf("%c", &novamente);
+    }
 }
 
 void seqSinal(){
+    char novamente='s';
 
+    while(novamente=='s' || novamente=='S'){
+        int qtdTermo=1;
+        float s=0, numerador=1000, denominador=5, atual=0;
+        printf("\n\nQuantos termos voce deseja?\n");
+        do
+        {
+            fflush(stdin);
+            scanf("%d", &qtdTermo);
+            if(qtdTermo<=0)
+                printf("\nTermo menor ou igual a zero, digite novamente: ");
+        }while(qtdTermo<=0);
+
+        for(int i=1; i<=qtdTermo; i++){
+            atual=numerador/denominador;
+            numerador-=3;
+            denominador+=5;
+            if((i % 2) == 0)
+                atual*=-1;
+            s+=atual;
+        }
+        printf("\n\n O resultado de 'S' e %.2f", s);
+
+        printf("\n\n\nDESEJA EXECUTAR O PROGRAMA 3 NOVAMENTE?");
+        printf(" SE SIM, DIGITE 'S' OU 's'...\n");
+        fflush(stdin);
+        scanf("%c", &novamente);
+    }
 }
 
 float medida5(){
@@ -37,8 +93,8 @@ float medida5(){
 }
 
 void orcamentoVidracaria(){
-    int fim=0, valor=5;
-    float comprimento=0, largura=0, pagar=0, maior=0, menor=0, total=0, primeiraVez=1;
+    int fim=0, valor=5, primeiraVez=1, cont=0;
+    float comprimento=0, largura=0, pagar=0, maior=0, menor=0, total=0;
     system("cls");
     printf("         ORCAMENTO VIDRACARIA         \n");
     printf(" ");
@@ -72,12 +128,14 @@ void orcamentoVidracaria(){
             for(int i=0; i<36; i++){
                 printf("%c", 220);
             }
+            cont++;
         }
     }while(fim==0);
 
     printf("\n\n\nO maior orcamento %.2f", maior);
     printf("\nO menor orcamento %2.f", menor);
     printf("\nValor total dos orcamentos %2.f", total);
+    printf("\nForam processado(s) %d orcamentos\n\n", cont);
     system("pause");
     }
 
