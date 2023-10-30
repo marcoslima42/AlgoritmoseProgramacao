@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define tam 3
+#define tam 10
 
 int main(){
     int num[tam], i=0, neg=0, pos=0;
