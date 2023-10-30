@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define tam 10
+#define tam 4
 
 int main(){
     int num[tam], i, somaPar=0, produtoImpar=1;
@@ -12,11 +12,11 @@ int main(){
     }
 
     for(i=0; i<tam; i++){
-        if((i%2)==0){
-            somaPar+=i;
+        if(i%2==0){
+            somaPar+=num[i];
         }
         else{
-            produtoImpar*=i;
+            produtoImpar*=num[i];
         }
     }
 
