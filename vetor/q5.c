@@ -1,47 +1,36 @@
-#include<stdio.h>
-#define tam 5
+#include <stdio.h>
 
-int main()
-{
-    int i=0, a[tam], b[tam], c[tam];
-    
-    printf("Entre com os valores do vetor A");
-    
-    for(i=0; i<tam; i++){
-        a[i]=0;
-        b[i]=0;
-        c[i]=0;
+void relatorio(int notaAluno, int *notas, int tam){
+    int notasCopia[11], qtd=0;
+        for(int i=0; i<tam; i++){
+            notasCopia[i];
+            qtd++;
+        }
     }
-    
-    for(i=0; i<tam; i++){
-        printf("\nNumero[%d]: ", i);
-        scanf("%d", &a[i]);
+
+    for(int i=0; i<tam; i++){
+        if(notas[i]==notasCopia){
+            printf("\n\nTiraram nota %d %d alunos", notaAluno, i);
+        }
     }
+} 
+int main(){
+    int i=0, tam=0, notaAluno=0;
     
+    printf("\nRELATORIO DE NOTAS\n");
+    printf("\n\nInsira a quantidade de alunos: ");
+    scanf("%d", &tam);
+    int notas[tam];
+
     for(i=0; i<tam; i++){
-        if(a[i]%2==0)
-            b[i]=a[i];
-        else
-            c[i]=a[i];
+        printf("\nAluno %d", i+1);
+        scanf("%d", &notas[i]);
     }
-    
-    printf("\n\nVetor A: ");
-    for(i=0; i<tam; i++){
-        printf("%d ", a[i]);
+
+    for (i=0; i<=tam; i++){
+        relatorio(notaAluno, notas, tam);
+        notaAluno++;
     }
-    
-    printf("\n\nVetor B: ");
-    for(i=0; i<tam; i++){
-        if(b[i]!=0)
-            printf("%d ", b[i]);
-    }
-    
-    
-    printf("\n\nVetor C: ");
-    for(i=0; i<tam; i++){
-        if(c[i]!=0)
-            printf("%d ", c[i]);
-    }
-    
+
     return 0;
 }
