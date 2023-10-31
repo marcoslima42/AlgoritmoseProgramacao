@@ -1,18 +1,14 @@
 #include <stdio.h>
 
 void relatorio(int notaAluno, int *notas, int tam){
-    int notasCopia[11], qtd=0;
-        for(int i=0; i<tam; i++){
-            notasCopia[i];
+    int qtd=0;
+
+    for(int i=0; i<tam; i++){
+        if(notas[i]==notaAluno){
             qtd++;
         }
     }
-
-    for(int i=0; i<tam; i++){
-        if(notas[i]==notasCopia){
-            printf("\n\nTiraram nota %d %d alunos", notaAluno, i);
-        }
-    }
+    printf("\n\nTiraram nota %d %d alunos", notaAluno, qtd);
 } 
 int main(){
     int i=0, tam=0, notaAluno=0;
@@ -23,11 +19,11 @@ int main(){
     int notas[tam];
 
     for(i=0; i<tam; i++){
-        printf("\nAluno %d", i+1);
+        printf("\nAluno %d: ", i+1);
         scanf("%d", &notas[i]);
     }
 
-    for (i=0; i<=tam; i++){
+    for (i=0; i<=10; i++){
         relatorio(notaAluno, notas, tam);
         notaAluno++;
     }
