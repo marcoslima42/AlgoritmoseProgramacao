@@ -25,4 +25,5 @@ int main(){
             pares++;
         }
     }
+    return 0;
 }
