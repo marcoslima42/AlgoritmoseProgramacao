@@ -1,26 +1,71 @@
 #include <stdio.h>
-#define tam 5
+#include <string.h>
 
-void verificar(int matriz[tam][tam], int i, int j){
-    for(int linha=0; linha<tam; linha++){
-        for(int coluna=0; coluna<tam; coluna++){
-            
+#define MAX_CITIES 10
+
+int obterIndiceCidade(char cidade, char cidades[], int numCidades) {
+    for (int i = 0; i < numCidades; i++) {
+        if (cidades[i] == cidade) {
+            return i;
         }
     }
-
-    if(matriz)
+    return -1; // Retorna -1 se a cidade não for encontrada
 }
 
-int main(){
-    int matriz[5][5], valor=0;;
-    printf("INSIRA A DISTANCIA ENTRE CIDADES: ");
+int main() {
+    char cidades[MAX_CITIES];
+    int distancias[MAX_CITIES][MAX_CITIES];
+    char percurso[MAX_CITIES];
+    int numCidades, numDistancias;
 
-    for(int i =0; i<tam; i++){
-        for(int j=0; j<tam; j++){
-            printf("MATRIZ[%d][%d]: ", matriz[i][j]);
-            matriz[i][j]=verificar(matriz, i, j);
+    // Obter o número de cidades
+    printf("Digite o número de cidades (máximo %d): ", MAX_CITIES);
+    scanf("%d", &numCidades);
+
+    if (numCidades <= 0 || numCidades > MAX_CITIES) {
+        printf("Número inválido de cidades.\n");
+        return 1;
+    }
+
+    // Obter nomes das cidades
+    printf("Digite os nomes das cidades (por exemplo, A B C): ");
+    for (int i = 0; i < numCidades; i++) {
+        scanf(" %c", &cidades[i]);
+    }
+
+    // Preencher matriz de distâncias
+    memset(distancias, 0, sizeof(distancias));
+    printf("Digite as distâncias entre as cidades:\n");
+    for (int i = 0; i < numCidades; i++) {
+        for (int j = 0; j < numCidades; j++) {
+            if (i != j) {
+                printf("Distância de %c para %c: ", cidades[i], cidades[j]);
+                scanf("%d", &distancias[i][j]);
+            }
         }
     }
+
+    // Obter percurso
+    printf("Digite o percurso (máximo %d cidades): ", MAX_CITIES);
+    for (int i = 0; i < MAX_CITIES; i++) {
+        scanf(" %c", &percurso[i]);
+        if (percurso[i] == '\n') {
+            break;
+        }
+    }
+
+    // Calcular distância total
+    int distanciaTotal = 0;
+    for (int i = 0; i < MAX_CITIES && percurso[i] != '\n'; i++) {
+        int cidadeAtual = obterIndiceCidade(percurso[i], cidades, numCidades);
+        int proximaCidade = obterIndiceCidade(percurso[i + 1], cidades, numCidades);
+        if (cidadeAtual != -1 && proximaCidade != -1) {
+            distanciaTotal += distancias[cidadeAtual][proximaCidade];
+        }
+    }
+
+    // Mostrar resultado
+    printf("Distância total percorrida: %d km\n", distanciaTotal);
 
     return 0;
 }
