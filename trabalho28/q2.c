@@ -9,7 +9,7 @@ int obterIndiceCidade(char cidade, char cidades[], int numCidades) {
             return i;
         }
     }
-    return -1; // Retorna -1 se a cidade não for encontrada
+    return -1; 
 }
 
 int main() {
